@@ -1,0 +1,24 @@
+
+curl -X POST http://localhost:8000/api/todo \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6InV6cm5lbTJAZ21haWwuY29tIn0sImlhdCI6MTc1MTA5MzI3NCwiZXhwIjoxNzUxMTc5Njc0fQ.nM0qYk7Ier47VyY4CnFgBENROdnIPEAdnbVVU_lxeME" \
+-d '{
+  "content": "4823"
+}'
+
+
+curl -X GET http://localhost:8000/api/todo/3 \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6InV6cm5lbTJAZ21haWwuY29tIn0sImlhdCI6MTc1MTA5MzI3NCwiZXhwIjoxNzUxMTc5Njc0fQ.nM0qYk7Ier47VyY4CnFgBENROdnIPEAdnbVVU_lxeME"
+
+
+curl -X PUT http://localhost:8000/api/todo/3 \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6InV6cm5lbTJAZ21haWwuY29tIn0sImlhdCI6MTc1MTA5MzI3NCwiZXhwIjoxNzUxMTc5Njc0fQ.nM0qYk7Ier47VyY4CnFgBENROdnIPEAdnbVVU_lxeME" \
+-d '{
+  "content": "3 three something 333"
+}'
+
+
+curl -X DELETE http://localhost:8000/api/todo/4 \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6InV6cm5lbTJAZ21haWwuY29tIn0sImlhdCI6MTc1MTA5MzI3NCwiZXhwIjoxNzUxMTc5Njc0fQ.nM0qYk7Ier47VyY4CnFgBENROdnIPEAdnbVVU_lxeME"

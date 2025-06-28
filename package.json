@@ -1,0 +1,43 @@
+{
+  "name": "fastify",
+  "version": "0.0.1",
+  "description": "Fastify Crud Setup with Postgres, Knex Db Migration, Jwt",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzrnem/fastify-postgres-todo-crud.git"
+  },
+  "keywords": [
+    "fastify",
+    "postgres",
+    "jwt",
+    "crud",
+    "knex",
+    "docker-compose",
+    "api",
+    "migration",
+    "docker"
+  ],
+  "author": "uzrnem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uzrnem/fastify-postgres-todo-crud/issues"
+  },
+  "homepage": "https://github.com/uzrnem/fastify-postgres-todo-crud#readme",
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@fastify/jwt": "^9.1.0",
+    "@fastify/postgres": "^6.0.2",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.0.0",
+    "fastify": "^5.4.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "knex": "^3.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

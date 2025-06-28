@@ -1,0 +1,7 @@
+curl -X POST http://localhost:8000/sign/up \
+-H "Content-Type: application/json" \
+-d '{ "email": "uzrnem2@gmail.com", "password": "PERSONAL_PASS" }'
+
+curl -X POST http://localhost:8000/sign/in \
+-H "Content-Type: application/json" \
+-d '{ "email": "uzrnem2@gmail.com", "password": "PERSONAL_PASS" }'
