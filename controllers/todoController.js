@@ -1,3 +1,9 @@
+import Joi from "joi";
+
+const todoSchema = Joi.object({
+  content: Joi.string().min(1).max(255).required(),
+});
+
 /**
  * Create a new todo
  * @param { import("fastify").FastifyInstance } fastify
@@ -8,8 +14,10 @@ export const create = async (fastify, req, reply) => {
     const { content } = req.body;
     const { id: userId } = req.user; // Extract user ID from the authenticated user
   
-    if (!content) {
-      return reply.status(400).send({ error: 'Content is required' });
+    // Validate the content using Joi schema
+    const { error } = todoSchema.validate({ content });
+    if (error) {
+      return reply.status(400).send({ error: error.details[0].message });
     }
   
     try {
@@ -56,9 +64,11 @@ export const create = async (fastify, req, reply) => {
   export const update = async (fastify, req, reply) => {
     const { id } = req.params; // Extract todo ID from the request params
     const { content } = req.body;
-  
-    if (!content) {
-      return reply.status(400).send({ error: 'Content is required' });
+
+    // Validate the content using Joi schema
+    const { error } = todoSchema.validate({ content });
+    if (error) {
+      return reply.status(400).send({ error: error.details[0].message });
     }
   
     try {

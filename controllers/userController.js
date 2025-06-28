@@ -1,4 +1,10 @@
-const bcrypt = require('bcrypt');
+import bcrypt from 'bcrypt';
+import Joi from "joi";
+
+const userSchema = Joi.object({
+  email: Joi.string().email().max(255).required(),
+  password: Joi.string().min(6).max(50).required()
+});
 
 /**
  * Signup method
@@ -6,11 +12,13 @@ const bcrypt = require('bcrypt');
  * @param { import("fastify").FastifyRequest } req
  * @param { import("fastify").FastifyReply } reply
  */
-exports.signup = async (fastify, req, reply) => {
+export const signup = async (fastify, req, reply) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    return reply.status(400).send({ error: 'Email and password are required' });
+  // Validate the request body
+  const { error } = userSchema.validate({ email, password });
+  if (error) {
+    return reply.status(400).send({ error: error.details[0].message });
   }
 
   try {
@@ -39,11 +47,13 @@ exports.signup = async (fastify, req, reply) => {
  * @param { import("fastify").FastifyRequest } req
  * @param { import("fastify").FastifyReply } reply
  */
-exports.signin = async (fastify, req, reply) => {
+export const signin = async (fastify, req, reply) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    return reply.status(400).send({ error: 'Email and password are required' });
+  // Validate the request body
+  const { error } = userSchema.validate({ email, password });
+  if (error) {
+    return reply.status(400).send({ error: error.details[0].message });
   }
 
   try {
